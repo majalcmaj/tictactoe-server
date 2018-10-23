@@ -25,7 +25,7 @@ func (gameAdapter *GameAdapter) Run() {
 
 func (gameAdapter *GameAdapter) handleEvent(anyEvent interface{}) bool {
 	switch event := anyEvent.(type) {
-	case common.MoveMadeEvent:
+	case *common.MoveMadeEvent:
 		return gameAdapter.gameEngine.movePlayer(event.Player, event.Index)
 	}
 	return false
