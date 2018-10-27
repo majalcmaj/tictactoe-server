@@ -14,7 +14,6 @@ type testSubscriber struct {
 }
 
 func (ts *testSubscriber) EventFired(value int) {
-	fmt.Println("Test subscriber got event with value: ", value)
 	ts.wasEventFired = true
 	ts.firesCounter++
 }
@@ -39,7 +38,6 @@ func TestMultipleSubscribers(t *testing.T) {
 	}
 	emitter.FireEvent(10)
 	for i := 0; i < subscribersCount; i++ {
-		fmt.Println(subs[i])
 		require.True(subs[i].wasEventFired, fmt.Sprint("No  event for subscriber with index ", i))
 	}
 }
